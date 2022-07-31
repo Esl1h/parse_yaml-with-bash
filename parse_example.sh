@@ -1,8 +1,5 @@
-# parse_yaml-with-bash
-How to parse and use yaml file in bash/shell script
+#!/bin/bash
 
-create this function:
-```shell
 function parse_yaml {
     local prefix=$2
     local s='[[:space:]]*' w='[a-zA-Z0-9_]*' fs=$(echo @|tr @ '\034')
@@ -19,22 +16,19 @@ function parse_yaml {
         }
     }'
 }
-```
 
-In the benning of your script, call `eval` to concate arguments
-
-`eval $(parse_yaml config.yml "CONFIG_")`
-
-This eval line will put CONFIG_ in front of each variable finded in config.yml (it is the \$2 and $prefix in function parse_yaml) line 4 and line 15 from my parse_example.sh.
+# eval - construct command by concatenating arguments
+# will put CONFIG_ in front of each variable finded in config.yml (it is the $2 and $prefix in function parse_yaml) line 4 and line 15.
+eval $(parse_yaml config.yml "CONFIG_")
 
 
-Each value from yml will be separated by "_" on your script call.
- example:
+# each value from yml will be separated by "_" on your script call.
+# example:
+#
+#  keyA:
+#    elementB: valueB
+#  
+#
 
-```yaml
-  keyA:
-    elementB: valueB
-  
-```
-
-And `echo "$CONFIG_keyA_elementB"` will return `valueB`
+echo "$CONFIG_keyA_elementB"
+echo "$CONFIG_keyD_elementD_elementE_elementF"

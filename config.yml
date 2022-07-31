@@ -1,0 +1,12 @@
+---
+keyA:
+  elementB: valueB
+  elementC: valueC
+
+keyB: value
+KeyC: value
+
+keyD:
+  elementD:
+    elementE:
+      elementF: valueF
