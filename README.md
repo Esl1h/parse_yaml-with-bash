@@ -21,13 +21,13 @@ function parse_yaml {
 }
 ```
 
-In the benning of your script, call `eval` to concate arguments
+In the beginning of your script, call `eval` to concate arguments
 
 `eval $(parse_yaml config.yml "CONFIG_")`
 
 This eval line will put CONFIG_ in front of each variable finded in config.yml (it is the \$2 and $prefix in function parse_yaml) line 4 and line 15 from my parse_example.sh.
 
-The config.yaml is on he same path that the .sh, you can create or modify the function to another yaml file (or put in a variable) and change the prefix.
+The config.yaml is on the same path that the .sh, you can create or modify the function to another yaml file (or put in a variable) and change the prefix.
 
 
 Each value from yml will be separated by "_" on your script call.
